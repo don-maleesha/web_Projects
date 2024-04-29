@@ -1,0 +1,42 @@
+body {
+    background-color: azure;
+    background-image: url(images/view-school-supplies-desk_23-2151110149.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#divId1 {
+    display: flex;
+    border: 1px solid;
+    background-color:aliceblue;
+    border-radius: 8px;
+    max-height: 90px;
+    text-align: center;
+}
+
+img {
+    border: 1px solid white;
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    width: 100px;
+}
+
+header {
+    margin-left: 480px;
+    margin-right: 260px;
+    font-size: 300%;
+    text-decoration: underline;
+}
+
+p {
+    margin-left: 500px;
+    margin-right: 360;
+    margin-bottom: 100px;
+    font-size: 100%;
+}
+
+#divId2 {
+    border: 1px solid;
+}
