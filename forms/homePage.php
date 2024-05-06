@@ -1,8 +1,15 @@
+<?php
+
+    include "dbcon.php";
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Recruiting Form</title>
         <link rel="stylesheet" type="text/css" href="homePage.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
         <link rel="js" href="homePage.js">
     </head>
     <body>
@@ -40,17 +47,17 @@
                 <label for="female">Female</label><br>
                 <label>Select Subjects</label><br>
                 <label for="sinhala" class="subjects">Sinhala</label>
-                <input type="checkbox" id="sinhala" name="subjects"><br>
+                <input type="checkbox" id="sinhala" name="subjects[]"><br>
                 <label for="english" class="subjects">English</label>
-                <input type="checkbox" id="english" name="subjects"><br>
+                <input type="checkbox" id="english" name="subjects[]"><br>
                 <label for="maths" class="subjects">Mathematics</label>
-                <input type="checkbox" id="maths" name="subjects"><br>
+                <input type="checkbox" id="maths" name="subjects[]"><br>
                 <label for="science" class="subjects">Science</label>
-                <input type="checkbox" id="science" name="subjects"><br>
+                <input type="checkbox" id="science" name="subjects[]"><br>
                 <label for="commerce" class="subjects">Accounting and Business Studeis</label>
-                <input type="checkbox" id="commerce" name="subjects"><br>
+                <input type="checkbox" id="commerce" name="subjects[]"><br>
                 <label for="ict" class="subjects">Information Communication Technology</label>
-                <input type="checkbox" id="ict" name="subjects"><br>
+                <input type="checkbox" id="ict" name="subjects[]"><br>
                 <label for="grade">Select your grade</label>
                 <select name="grade" id="grade">
                     <option value="6" selected>6</option>
