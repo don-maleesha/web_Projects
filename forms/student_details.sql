@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 06:18 AM
+-- Generation Time: May 15, 2024 at 09:09 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,16 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `student_details` (
   `id` int(11) NOT NULL,
-  `nic` varchar(15) NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `name_with_initials` varchar(255) NOT NULL,
+  `nic` varchar(20) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `name_with_initials` varchar(50) NOT NULL,
   `age` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `permanent_address` varchar(255) DEFAULT NULL,
-  `contact_number` varchar(15) DEFAULT NULL,
-  `gender` enum('Male','Female') DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `permanent_address` varchar(255) NOT NULL,
+  `contact_number` varchar(15) NOT NULL,
+  `gender` enum('male','female') NOT NULL,
   `subjects` varchar(255) DEFAULT NULL,
-  `grade` int(11) DEFAULT NULL
+  `grade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -46,9 +46,8 @@ CREATE TABLE `student_details` (
 --
 
 INSERT INTO `student_details` (`id`, `nic`, `full_name`, `name_with_initials`, `age`, `email`, `permanent_address`, `contact_number`, `gender`, `subjects`, `grade`) VALUES
-(1, '200111504153', 'Haddagoda Ralalage Don Lochana Maleesha ThilakarathneH.R.D.L.M.Thilakarathne', '23', 0, 'No : 47 , Medagammedda , Walala , Menikhinna, Kandy, 20170', '0713498849', 'on', '', '10', NULL),
-(2, '200111504153', 'Haddagoda Ralalage Don Lochana Maleesha ThilakarathneH.R.D.L.M.Thilakarathne', '23', 0, 'No : 47 , Medagammedda , Walala , Menikhinna, Kandy, 20170', '0713498849', 'on', '', '10', NULL),
-(3, '120934875674', 'jkjkljlsak.l.f.ffjskfjs', '23', 0, 'dkljakdjlfsfksdf', '0713498849', 'on', '', '10', NULL);
+(1, '200111504153', 'Lochana Thilakarathne', 'Lochana Thilakarathne', 23, 'lochanamaleeshathilakarathne@gmail.com', 'No : 47 , Medagammedda , Walala , Menikhinna.', '0713498849', 'male', 'English,Mathematics', 6),
+(2, '200211504153', 'Lochana Thilakarathne', 'Lochana Thilakarathne', 23, 'lochanamaleesha@gmail.com', 'No : 47 , Medagammedda , Walala , Menikhinna.', '0713498849', 'male', 'English,Mathematics,Science', 11);
 
 --
 -- Indexes for dumped tables
@@ -58,7 +57,8 @@ INSERT INTO `student_details` (`id`, `nic`, `full_name`, `name_with_initials`, `
 -- Indexes for table `student_details`
 --
 ALTER TABLE `student_details`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nic` (`nic`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -68,7 +68,7 @@ ALTER TABLE `student_details`
 -- AUTO_INCREMENT for table `student_details`
 --
 ALTER TABLE `student_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,44 +1,47 @@
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "THE_Institute";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "THE_Institute";
 
-    //create the connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+//create the connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    //check connection
-    if (!$conn) {
+//check connection
+if (!$conn) {
 
-        die ("Connection Failes " . mysqli_connect_error());
+    die("Connection Failes " . mysqli_connect_error());
+}
 
-    }
+if (isset($_POST['submit'])) {
+    # code...
 
-    $nic = mysqli_real_escape_string($conn, $_POST['nic']);
-    $fullName = mysqli_real_escape_string($conn, $_POST['full_name']);
-    $initials = mysqli_real_escape_string($conn, $_POST['name_with_initials']);
-    $age = mysqli_real_escape_string($conn, $_POST['age']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $address = mysqli_real_escape_string($conn, $_POST['permanent_address']);
-    $contact = mysqli_real_escape_string($conn, $_POST['contact_number']);
-    $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-    $subjects = mysqli_real_escape_string($conn, $_POST['subjects']);
-    $grade = mysqli_real_escape_string($conn, $_POST['grade']);
+    $nic = $_POST['nic'];
+    $fullName = $_POST['full_name'];
+    $initials = $_POST['name_with_initials'];
+    $age = $_POST['age'];
+    $email = $_POST['email'];
+    $address = $_POST['permanent_address'];
+    $contact = $_POST['contact_number'];
+    $gender = $_POST['gender'];
+    $subjects = $_POST['subjects'];
+    $grade = $_POST['grade'];
 
-    $sql = "INSERT INTO student_details(nic, full_name, name_with_initials, age, email, permanent_address, contact_number, gender, subjects)
-            VALUES('$nic', '$fullName' '$initials', '$age', '$email', '$address', '$contact', '$gender', '$subjects', '$grade')";
+    $selectedSubjects = implode(',', $subjects);
 
-    if (mysqli_query($conn, $sql) === TRUE) {
+    $sql = "INSERT INTO student_details(nic, full_name, name_with_initials, age, email, permanent_address, contact_number, gender, subjects, grade)
+            VALUES('$nic', '$fullName', '$initials', '$age', '$email', '$address', '$contact', '$gender', '$selectedSubjects', '$grade')";
 
-        echo "<script>alert('Deatils Added');window.location.href='homePage.php;</script>";
+    $reuslt = mysqli_query($conn, $sql);
+
+    if ($reuslt) {
+        # code...
+        echo "Done";
 
     } else {
 
-        echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+        die ("Connection Failed" . mysqli_connect_error());
 
     }
-
-    mysqli_close($conn);
-
-?>
+}
