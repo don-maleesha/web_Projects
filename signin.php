@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION["user"])) {
+    header("Location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +30,10 @@
         if ($user) {
             // checks if the password is correct
             if (password_verify($password, $user["password"])) {
-                // if the password is correct, the user is redirected to the index page
-                header("Location: index.php");
-                die();
+                    session_start();
+                    $_SESSION["user"] = "yes";
+                    header("Location: index.php");
+                    die();
             } else {
                 echo "<div class='alert alert-danger'>Invalid password</div>";
             }
@@ -36,7 +43,7 @@
     }
     ?>
     <div class="container">
-        <form method="post">
+        <form action= "index.php" method="post">
             <div class="form-group mb-3">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email_address" class="form-control">
